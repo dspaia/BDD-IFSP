@@ -1,0 +1,128 @@
+//  CRIANDO BANCO DE DADOS
+
+create database if not exists SistemaDeAvaliacao
+	character set latin1
+    collate latin1_general_cs
+
+// CRIANDO TABELAS
+
+-- '0' = Não e '1' = Sim --> isso para os atributos blob/tinyint(1)
+
+create table Configuracao (
+	IdConfiguracao int not null auto_increment,
+    Paginacao int,
+    OcultaQuestoesOutrosUsuarios tinyint(1),
+    ExibeMateria tinyint(1),
+    ExibeAlternativas tinyint(1),
+    primary key (IdConfiguracao)
+);
+
+create table Usuario (
+	IdUsuario int not null auto_increment,
+    Email varchar(255),
+    NomeCompleto varchar(255),
+    Senha char(12),
+    Foto tinyint(1),
+    Administrador tinyint(1),
+    primary key (IdUsuario)
+);
+
+create table Questao (
+	IdQuestao int not null auto_increment,
+    Imagem tinyint(1),
+    Comentarios varchar(1000),
+    Assunto varchar(255),
+    Ano year, 
+    Banca varchar(10), -- sigla da banca
+    Orgao varchar(10), -- sigla do orgão
+    Prova int, -- numero da prova
+    Enunciado varchar(2000),
+    Verficada tinyint(1),
+    primary key (IdQuestao)
+);
+
+create table Alternativa (
+	IdAlternativa int not null auto_increment,
+    Texto varchar (1000),
+    Certa tinyint(4), -- 'a' = '0', 'b' = '1', 'c' = '2', 'd' = '3', 'e' = '4'
+    Imagem tinyint(1),
+    primary key (IdAlternativa)
+);
+
+create table Prova (
+	IdProva int not null auto_increment,
+    Descricao varchar(2000),
+    Tema varchar(1000),
+    DataProva datetime,
+    primary key (IdProva)
+);
+
+create table Materia (
+	IdMateria int not null auto_increment,
+    Nome varchar(255),
+    Sigla varchar(10),
+    Curso varchar(255),
+    Inativa tinyint(1),
+    primary key (IdMateria)
+);
+
+// ADICIONANDO COLUNAS
+
+alter table Usuario
+	add column IdConfiguracao int not null;
+
+alter table Questao
+	add column IdUsuario int not null;
+    
+alter table Alternativa
+	add column IdQuestao int not null;
+
+alter table Prova
+	add column IdUsuario int not null,
+    add column IdMateria int not null;
+
+//  ADICIONANDO CHAVES ESTRANGEIRAS 
+
+alter table Usuario
+add 
+foreign key (IdConfiguracao)
+references Configuracao (IdConfiguracao);
+
+alter table Questao
+add 
+foreign key (IdUsuario)
+references Usuario (IdUsuario);
+
+alter table Alternativa
+add
+foreign key (IdQuestao)
+references Questao (IdQuestao);
+
+alter table Prova
+add
+foreign key (IdUsuario)
+references Usuario (IdUsuario);
+
+alter table Prova
+add
+foreign key (IdMateria)
+references Materia(IdMateria);
+
+//  CRIANDO TABELA PROPRIA
+
+create table ProvaQuestao(
+	IdQuestao int not null,
+    IdProva int not null,
+    primary key (IdQuestao),
+    primary key (IdProva)
+);
+
+
+
+
+
+
+
+
+    
+    

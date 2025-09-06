@@ -1,0 +1,71 @@
+
+
+Configuracao (
+                *IdConfiguracao*, 
+                Paginacao,
+                OcultaQuestoesOutrosUsuarios, 
+                ExibeMateriaAlternativa, 
+                ExibeAlternativas
+            )
+
+Usuario (
+            *IdUsuario*,  
+            Email, 
+            NomeCompleto,
+            Senha, 
+            Foto, 
+            Administrador, 
+            *IdConfiguracao*
+        )
+    IdConfiguracao referencia Configuracao
+
+Questao (
+            *IdQuestao*, 
+            Imagem, 
+            Comentarios, 
+            Assunto, 
+            Ano, 
+            Banca, 
+            Orgao, 
+            Prova, 
+            Enunciado, 
+            Verificada, 
+            *IdUsuario*
+        )
+    IdUsuario referencia Usuario
+
+Alternativa (
+                *IdAlternativa*, 
+                Texto, 
+                Certa, 
+                Imagem, 
+                *IdQuestao*
+            )    
+    IdQuestao referencia Questao
+
+Prova (
+            *IdProva*,
+            Descricao, 
+            Tema, 
+            DataProva, 
+            *IdUsuario*, 
+            *IdMateria*
+        )
+    IdUsuario referencia Usuario
+    IdMateria referencia Materia
+
+Materia (
+            *IdMateria*, 
+            Nome, 
+            Sigla, 
+            Curso, 
+            Inativa
+        )
+
+ProvaQuestao (
+                *IdQuestao*, 
+                *IdProva*
+            )
+    IdQuestao referencia Questao
+    IdProva referencia Prova
+
