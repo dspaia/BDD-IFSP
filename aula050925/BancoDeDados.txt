@@ -118,6 +118,38 @@ create table ProvaQuestao(
 	foreign key (IdProva) references Prova (IdProva)
 );
 
+-- INSERINDO DADOS
+	
+insert into Configuracao (Paginacao, OcultaQuestoesOutrosUsuarios, ExibeMateria, ExibeAlternativas)
+values
+(21, 1, 1, 1),
+(21, 1, 0, 1),
+(21, 0, 1, 1);
+
+insert into Usuario (IdConfiguracao, Email, NomeCompleto, Senha, Foto, Administrador)
+values
+(1, "brunomotta@gmail.com", "Bruno Motta da Silva", "1234", 0, 0),
+(2, "leonardomotta@yahoo.com", "Leonardo Motta da Silva", "abcd", 1, 0),
+(3, "jairbolsonaro2026@hotmail.com", "Jair Bolsonaro da Silva Cabral Vieira Nascimento II", "123abc", 1, 0);
+
+insert into Materia (Nome, Sigla, Curso, Inativa)
+values
+("Biologia", "BIO", ".M", 0),
+("Laboratório de Programção", "LBP", "DS", 0),
+("Química", "QUI", "EM", 0),
+("Matemática", "MAT", "EM", 0),
+("Banco de Dados", "BDD", "DS", 0);
+
+insert into Prova (Descricao, Tema, DataProva, IdUsuario, IdMateria)
+values
+("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "La ele e gírias", '2025-10-10 10:15:30', 1, 1),
+("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Motta e piadas", '2025-10-10 10:15:31', 2, 2),
+("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "França e o comunismo", '2025-10-10 10:15:32', 3, 3),
+("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Tamanhos diferentes de plug(in)", '2025-10-10 10:15:33', 1, 4),
+("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "BOlsonaro e Lula - a luta indomável", '2025-10-10 10:15:34', 2, 5),
+("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Adriano Ricardo", '2025-10-10 10:15:35', 3, 4),
+("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Cardiar e Muscular", '2025-10-10 10:15:36', 2, 3);
+
 
 
 
