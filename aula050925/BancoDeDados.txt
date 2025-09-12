@@ -113,8 +113,9 @@ references Materia(IdMateria);
 create table ProvaQuestao(
 	IdQuestao int not null,
     IdProva int not null,
-    primary key (IdQuestao),
-    primary key (IdProva)
+    primary key (IdQuestao, IdProva),
+	foreign key (IdQuestao) references Questao (IdQuestao),
+	foreign key (IdProva) references Prova (IdProva)
 );
 
 
