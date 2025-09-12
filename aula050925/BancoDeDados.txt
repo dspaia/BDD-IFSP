@@ -1,10 +1,10 @@
-//  CRIANDO BANCO DE DADOS
+--  CRIANDO BANCO DE DADOS
 
 create database if not exists SistemaDeAvaliacao
 	character set latin1
     collate latin1_general_cs
 
-// CRIANDO TABELAS
+-- CRIANDO TABELAS
 
 -- '0' = Não e '1' = Sim --> isso para os atributos blob/tinyint(1)
 
@@ -20,8 +20,8 @@ create table Configuracao (
 create table Usuario (
 	IdUsuario int not null auto_increment,
     Email varchar(255),
-    NomeCompleto varchar(255),
-    Senha char(12),
+    NomeCompleto varchar(255) not null,
+    Senha char(12) not null,
     Foto tinyint(1),
     Administrador tinyint(1),
     primary key (IdUsuario)
@@ -66,7 +66,7 @@ create table Materia (
     primary key (IdMateria)
 );
 
-// ADICIONANDO COLUNAS
+-- ADICIONANDO COLUNAS
 
 alter table Usuario
 	add column IdConfiguracao int not null;
@@ -81,7 +81,7 @@ alter table Prova
 	add column IdUsuario int not null,
     add column IdMateria int not null;
 
-//  ADICIONANDO CHAVES ESTRANGEIRAS 
+-- ADICIONANDO CHAVES ESTRANGEIRAS 
 
 alter table Usuario
 add 
@@ -108,7 +108,7 @@ add
 foreign key (IdMateria)
 references Materia(IdMateria);
 
-//  CRIANDO TABELA PROPRIA
+--  CRIANDO TABELA PROPRIA
 
 create table ProvaQuestao(
 	IdQuestao int not null,
