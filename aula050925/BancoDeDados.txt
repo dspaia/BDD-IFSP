@@ -30,13 +30,13 @@ create table Usuario (
 create table Questao (
 	IdQuestao int not null auto_increment,
     Imagem tinyint(1),
-    Comentarios varchar(1000),
+    Comentarios text,
     Assunto varchar(255),
     Ano year, 
-    Banca varchar(10), -- sigla da banca
-    Orgao varchar(10), -- sigla do orgão
+    Banca varchar(255),
+    Orgao varchar(255),
     Prova int, -- numero da prova
-    Enunciado varchar(2000),
+    Enunciado text,
     Verficada tinyint(1),
     primary key (IdQuestao)
 );
