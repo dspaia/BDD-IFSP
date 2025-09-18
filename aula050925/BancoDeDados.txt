@@ -142,13 +142,198 @@ values
 
 insert into Prova (Descricao, Tema, DataProva, IdUsuario, IdMateria)
 values
-("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "La ele e gírias", '2025-10-10 10:15:30', 1, 1),
-("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Motta e piadas", '2025-10-10 10:15:31', 2, 2),
-("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "França e o comunismo", '2025-10-10 10:15:32', 3, 3),
-("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Tamanhos diferentes de plug(in)", '2025-10-10 10:15:33', 1, 4),
-("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "BOlsonaro e Lula - a luta indomável", '2025-10-10 10:15:34', 2, 5),
-("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Adriano Ricardo", '2025-10-10 10:15:35', 3, 4),
-("Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Cardiar e Muscular", '2025-10-10 10:15:36', 2, 3);
+("Prova sobre expressões populares e variações linguísticas do português brasileiro.", "La ele e gírias", '2025-10-10 10:15:30', 1, 1),
+("Prova com questões de humor, jogos de palavras e interpretação de piadas.", "Motta e piadas", '2025-10-10 10:15:31', 2, 2),
+("Avaliação abordando a história da França e suas relações com o comunismo.", "França e o comunismo", '2025-10-10 10:15:32', 3, 3),
+("Questões sobre padrões e tamanhos de conectores e dispositivos eletrônicos.", "Tamanhos diferentes de plug(in)", '2025-10-10 10:15:33', 1, 4),
+("Prova comparativa entre ideologias políticas brasileiras contemporâneas.", "BOlsonaro e Lula - a luta indomável", '2025-10-10 10:15:34', 2, 5),
+("Avaliação geral sobre conteúdos trabalhados pelo professor Adriano Ricardo.", "Adriano Ricardo", '2025-10-10 10:15:35', 3, 4),
+("Prova sobre os sistemas cardiovascular e muscular, suas funções e interações.", "Cardiar e Muscular", '2025-10-10 10:15:36', 2, 3);
+
+insert into Questao (Imagem, Comentarios, Assunto, Ano, Banca, Orgao, Prova, Enunciado, Verficada, IdUsuario)
+values
+(1, "Questão simples de interpretação", "Linguagem popular", 2025, "IFSP", "EM", 1, "O que significa a expressão 'lá ele'?", 1, 1),
+(0, "Questão de gírias", "Sociolinguística", 2025, "IFSP", "EM", 1, "Qual gíria é usada para dizer que algo está muito bom?", 1, 1),
+(1, "Questão de humor", "Piadas", 2025, "IFSP", "DS", 2, "Por que a galinha atravessou a rua?", 1, 2),
+(1, "Questão de humor", "Jogos de palavras", 2025, "IFSP", "DS", 2, "Qual é o cúmulo do matemático?", 1, 2),
+(1, "Questão histórica", "França", 2025, "IFSP", "EM", 3, "Em que ano ocorreu a Revolução Francesa?", 1, 3),
+(0, "Questão política", "Comunismo", 2025, "IFSP", "EM", 3, "Quem escreveu o Manifesto Comunista?", 1, 3),
+(0, "Questão de tecnologia", "Hardware", 2025, "IFSP", "DS", 4, "Qual é o padrão mais comum de entrada USB atualmente?", 1, 1),
+(0, "Questão de tecnologia", "Conectores", 2025, "IFSP", "DS", 4, "Qual conector é usado para monitores modernos?", 1, 1),
+(0, "Questão política", "Brasil", 2025, "IFSP", "EM", 5, "Qual cargo já foi ocupado por Lula e Bolsonaro?", 1, 2),
+(1, "Questão comparativa", "Política", 2025, "IFSP", "EM", 5, "Bolsonaro e Lula foram candidatos em qual eleição?", 1, 2),
+(0, "Questão de professor", "Adriano Ricardo", 2025, "IFSP", "DS", 6, "O professor Adriano Ricardo leciona em qual área?", 1, 3),
+(0, "Questão simples", "Adriano Ricardo", 2025, "IFSP", "DS", 6, "Qual o primeiro nome do professor Ricardo?", 1, 3),
+(0, "Questão de biologia", "Sistema cardiovascular", 2025, "IFSP", "EM", 7, "Qual órgão bombeia sangue para o corpo?", 1, 2),
+(1, "Questão de biologia", "Sistema muscular", 2025, "IFSP", "EM", 7, "Qual músculo é responsável pela respiração?", 1, 2),
+(1, "Questão de química", "Combustão", 2025, "IFSP", "EM", 3, "Qual gás é essencial para a combustão?", 1, 3),
+(0, "Questão de química", "Tabela Periódica", 2025, "IFSP", "EM", 3, "Qual é o símbolo químico do sódio?", 1, 3),
+(0, "Questão de matemática", "Álgebra", 2025, "IFSP", "EM", 4, "Quanto é 2x + 3 quando x = 5?", 1, 1),
+(0, "Questão de matemática", "Geometria", 2025, "IFSP", "EM", 4, "Qual a soma dos ângulos internos de um triângulo?", 1, 1);
+
+insert into Alternativa (Texto, Certa, Imagem, IdQuestao)
+values
+-- Questão 1
+("Expressão de recusa ou afastamento", 1, 0, 1),
+("Forma de elogio", 0, 0, 1),
+("Nome de pessoa", 0, 0, 1),
+("Saudação informal", 0, 0, 1),
+("Gíria para 'está bom'", 0, 0, 1),
+
+-- Questão 2
+("Top", 1, 0, 2),
+("Triste", 0, 0, 2),
+("Lá ele", 0, 0, 2),
+("Bicho", 0, 0, 2),
+("Nada a ver", 0, 0, 2),
+
+-- Questão 3
+("Para atravessar", 0, 0, 3),
+("Porque sim", 0, 0, 3),
+("Para chegar do outro lado", 1, 0, 3),
+("Por estar perdida", 0, 0, 3),
+("Porque voava", 0, 0, 3),
+
+-- Questão 4
+("Não ter raiz quadrada", 0, 0, 4),
+("Ser irracional", 0, 0, 4),
+("Viver sem solução", 1, 0, 4),
+("Gostar de números", 0, 0, 4),
+("Contar piadas ruins", 0, 0, 4),
+
+-- Questão 5
+("1789", 1, 0, 5),
+("1822", 0, 0, 5),
+("1500", 0, 0, 5),
+("1917", 0, 0, 5),
+("2000", 0, 0, 5),
+
+-- Questão 6
+("Karl Marx", 1, 0, 6),
+("Napoleão", 0, 0, 6),
+("Hitler", 0, 0, 6),
+("Lenin", 0, 0, 6),
+("Darwin", 0, 0, 6),
+
+-- Questão 7
+("USB-C", 1, 0, 7),
+("VGA", 0, 0, 7),
+("PS2", 0, 0, 7),
+("Serial", 0, 0, 7),
+("HDMI", 0, 0, 7),
+
+-- Questão 8
+("HDMI", 1, 0, 8),
+("RJ45", 0, 0, 8),
+("USB-A", 0, 0, 8),
+("PS2", 0, 0, 8),
+("Serial", 0, 0, 8),
+
+-- Questão 9
+("Presidente da República", 1, 0, 9),
+("Governador", 0, 0, 9),
+("Senador", 0, 0, 9),
+("Prefeito", 0, 0, 9),
+("Deputado", 0, 0, 9),
+
+-- Questão 10
+("2022", 1, 0, 10),
+("2010", 0, 0, 10),
+("2002", 0, 0, 10),
+("1998", 0, 0, 10),
+("2026", 0, 0, 10),
+
+-- Questão 11
+("Banco de Dados", 1, 0, 11),
+("Educação Física", 0, 0, 11),
+("Geografia", 0, 0, 11),
+("História", 0, 0, 11),
+("Química", 0, 0, 11),
+
+-- Questão 12
+("Adriano", 1, 0, 12),
+("Ricardo", 0, 0, 12),
+("Carlos", 0, 0, 12),
+("Bruno", 0, 0, 12),
+("Leonardo", 0, 0, 12),
+
+-- Questão 13
+("Coração", 1, 0, 13),
+("Pulmão", 0, 0, 13),
+("Fígado", 0, 0, 13),
+("Estômago", 0, 0, 13),
+("Rim", 0, 0, 13),
+
+-- Questão 14
+("Diafragma", 1, 0, 14),
+("Bíceps", 0, 0, 14),
+("Quadríceps", 0, 0, 14),
+("Peitoral", 0, 0, 14),
+("Trapézio", 0, 0, 14),
+
+-- Questão 15
+("Oxigênio", 1, 0, 15),
+("Hidrogênio", 0, 0, 15),
+("Nitrogênio", 0, 0, 15),
+("Gás carbônico", 0, 0, 15),
+("Hélio", 0, 0, 15),
+
+-- Questão 16
+("Na", 1, 0, 16),
+("So", 0, 0, 16),
+("Cl", 0, 0, 16),
+("K", 0, 0, 16),
+("S", 0, 0, 16),
+
+-- Questão 17
+("13", 0, 0, 17),
+("15", 0, 0, 17),
+("10", 0, 0, 17),
+("20", 0, 0, 17),
+("13", 1, 0, 17),
+
+-- Questão 18
+("180°", 1, 0, 18),
+("90°", 0, 0, 18),
+("270°", 0, 0, 18),
+("360°", 0, 0, 18),
+("100°", 0, 0, 18);
+
+insert into ProvaQuestao (IdQuestao, IdProva)
+values
+-- Prova 1 
+(1, 1),
+(2, 1),
+
+-- Prova 2 
+(3, 2),
+(4, 2),
+
+-- Prova 3 
+(5, 3),
+(6, 3),
+(15, 3),
+(16, 3),
+
+-- Prova 4 
+(7, 4),
+(8, 4),
+
+-- Prova 5 
+(9, 5),
+(10, 5),
+
+-- Prova 6 
+(11, 6),
+(12, 6),
+
+-- Prova 7 
+(13, 7),
+(14, 7),
+(17, 7),
+(18, 7);
+
+
 
 
 
